@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scryfall Scraper</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="./js/utilities.js" async></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="card">
+            <h1>Scryfall - MTG Scraper</h1>
+            <p>Just add the url of the set here and press the button.</p>
+        </header>
+        <main class="main-body card">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" class="url-input" value="https://scryfall.com/sets/vow" id="set-url" name="set-url" />
+                    <label for="set-url">MTG Set URL from Scryfall</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 download-button-container">
+                    <a class="get-products-set waves-effect waves-light btn">Get Scryfall Set <i class="material-icons right">send</i></a>
+                </div>
+                <div class="error-message-container"></div>
+            </div>
+            <div class="row">
+                <div class="table-container col s12">
+                    
+                </div>
+            </div>
+        </main>
+        <footer class="card">
+            <p>&copy; Copyright <span class="year"></span> - Scryfall - MTG Scraper. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="./js/index.js" defer></script>
+    <script>
+        let year = new Date().getFullYear(),
+            spanEl = document.querySelector(".year");
+        spanEl.innerText = year;
+    </script>
+</body>
+</html>
