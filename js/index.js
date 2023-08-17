@@ -17,11 +17,11 @@ function getCardBasicProps(cardObject, frameEffects)   {
     // let { name : productName, image_uris, mana_cost : cost, colors, type_line : cardType, power, toughness, artist, oracle_text, flavor_text } = cardObject;
 
     let productName = function(){
-            let name = getValidatedPropValues(cardObject, ["printed_name"]);
+            let name = selectedLanguage ? getValidatedPropValues(cardObject, ["printed_name"]) : getValidatedPropValues(cardObject, ["name"]);
 
             return [name, frameEffects].filter(item => item !== null || item !== "").join("");
         }(),
-        name = getValidatedPropValues(cardObject, ["printed_name"]),
+        name = selectedLanguage ? getValidatedPropValues(cardObject, ["printed_name"]) : getValidatedPropValues(cardObject, ["name"]),
         imageUris = function(){
             let imageUris = getValidatedPropValues(cardObject, ["image_uris"]);
 
@@ -64,7 +64,7 @@ function getCardBasicProps(cardObject, frameEffects)   {
             }
 
         }(),
-        cardType = getValidatedPropValues(cardObject, ["printed_type_line"]),
+        cardType = selectedLanguage ? getValidatedPropValues(cardObject, ["printed_type_line"]) : getValidatedPropValues(cardObject, ["type_line"]),
         powTgh = function(){
             let power = getValidatedPropValues(cardObject, ["power"]) || "*",
                 toughness = getValidatedPropValues(cardObject, ["toughness"]) || "*",
